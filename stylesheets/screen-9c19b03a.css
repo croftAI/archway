@@ -1,6 +1,6 @@
 /*! normalize.css v3.0.2 | MIT License | github.com/necolas/normalize.css */
 html {
-    font-family: outfit;
+    font-family: 'Outfit', sans-serif;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%
 }
@@ -121,7 +121,7 @@ code,
 kbd,
 pre,
 samp {
-    font-family: outfit, outfit;
+    font-family: 'Outfit', sans-serif;
     font-size: 1em
 }
 
@@ -227,7 +227,7 @@ th {
 .content h6,
 html,
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: 'Outfit', sans-serif;
     font-size: 14px
 }
 
@@ -242,7 +242,7 @@ body {
 
 .content code,
 .content pre {
-    font-family: Consolas, Menlo, Monaco, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace, serif;
+    font-family: 'Outfit', sans-serif;
     font-size: 12px;
     line-height: 1.5
 }
@@ -255,7 +255,7 @@ body {
 }
 
 @font-face {
-    font-family: 'outfit';
+    font-family: 'Outfit', sans-serif;
     src: url(../fonts/Outfit-Regular.ttf?-syv14m);
     src: url(../fonts/Outfit-Regular.ttf?#iefix-syv14m) format("embedded-opentype"), url(../fonts/Outfit-SemiBold.ttf?-syv14m) format("ttf"), url(../fonts/Outfit-Regular.ttf?-syv14m) format("truetype"), url(../fonts/Outfit-Regular.ttf?-syv14m) format("truetype"), url(../fonts/Outfit-Medium.ttf?-syv14m#slate) format("ttf");
     font-weight: normal;
@@ -266,7 +266,7 @@ body {
 .content aside.notice:before,
 .content aside.success:before,
 .toc-wrapper>.search:before {
-    font-family: 'outfit';
+    font-family: 'Outfit', sans-serif;
     speak: none;
     font-style: normal;
     font-weight: normal;
