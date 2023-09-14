@@ -362,7 +362,7 @@ body {
     position: absolute;
     top: 17px;
     left: 15px;
-    color: #7CA0B5
+    color: #163548
 }
 
 .toc-wrapper .search-results {
@@ -430,7 +430,7 @@ body {
 
 .toc-wrapper .toc-list-h2 {
     display: none;
-    background-color: #7CA0B5;
+    background-color: #163548;
     font-weight: 500
 }
 
