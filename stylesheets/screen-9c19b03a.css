@@ -1,6 +1,6 @@
 /*! normalize.css v3.0.2 | MIT License | github.com/necolas/normalize.css */
 html {
-    font-family: sans-serif;
+    font-family: outfit;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%
 }
@@ -121,7 +121,7 @@ code,
 kbd,
 pre,
 samp {
-    font-family: monospace, monospace;
+    font-family: outfit, outfit;
     font-size: 1em
 }
 
@@ -255,9 +255,9 @@ body {
 }
 
 @font-face {
-    font-family: 'slate';
-    src: url(../fonts/slate-cfc9d06b.eot?-syv14m);
-    src: url(../fonts/slate-cfc9d06b.eot?#iefix-syv14m) format("embedded-opentype"), url(../fonts/slate.woff2?-syv14m) format("woff2"), url(../fonts/slate.woff?-syv14m) format("woff"), url(../fonts/slate-7b7da4fe.ttf?-syv14m) format("truetype"), url(../fonts/slate-e55b8307.svg?-syv14m#slate) format("svg");
+    font-family: 'outfit';
+    src: url(../fonts/Outfit-Regular.ttf?-syv14m);
+    src: url(../fonts/Outfit-Regular.ttf?#iefix-syv14m) format("embedded-opentype"), url(../fonts/Outfit-SemiBold.ttf?-syv14m) format("ttf"), url(../fonts/Outfit-Regular.ttf?-syv14m) format("truetype"), url(../fonts/Outfit-Regular.ttf?-syv14m) format("truetype"), url(../fonts/Outfit-Medium.ttf?-syv14m#slate) format("ttf");
     font-weight: normal;
     font-style: normal
 }
@@ -266,7 +266,7 @@ body {
 .content aside.notice:before,
 .content aside.success:before,
 .toc-wrapper>.search:before {
-    font-family: 'slate';
+    font-family: 'outfit';
     speak: none;
     font-style: normal;
     font-weight: normal;
