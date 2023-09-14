@@ -1,0 +1,1077 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta
+            name="description"
+            content="Documentation for the s-aws-api"
+        >
+    <title>System AWS API</title>
+
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #f92672;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sa {
+  color: #6c71c4;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="stylesheets/screen-9c19b03a.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-966d6edc.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all-b12a2749.js"></script>
+
+    <script>
+      $(function() { setupCodeCopy(); });
+    </script>
+  </head>
+
+  <body class="index" data-languages="[&quot;shell&quot;,&quot;HTTP&quot;,&quot;python&quot;,&quot;javascript&quot;,&quot;java&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar-cad8cdcb.png" alt="" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo-1e815a84.png" class="logo" alt="" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">shell</a>
+              <a href="#" data-language-name="HTTP">HTTP</a>
+              <a href="#" data-language-name="python">python</a>
+              <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="java">java</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#relational-database-service-rds" class="toc-h1 toc-link" data-title="Relational Database Service (RDS)">Relational Database Service (RDS)</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#accounts" class="toc-h2 toc-link" data-title="Accounts">Accounts</a>
+                  </li>
+                  <li>
+                    <a href="#account-transactions" class="toc-h2 toc-link" data-title="Account - Transactions">Account - Transactions</a>
+                  </li>
+                  <li>
+                    <a href="#get-enrich-transactions" class="toc-h2 toc-link" data-title="GET Enrich - Transactions">GET Enrich - Transactions</a>
+                  </li>
+                  <li>
+                    <a href="#post-enrich-transactions" class="toc-h2 toc-link" data-title="POST Enrich - Transactions">POST Enrich - Transactions</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#kinesis-stream" class="toc-h1 toc-link" data-title="Kinesis Stream">Kinesis Stream</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#post-record" class="toc-h2 toc-link" data-title="POST Record">POST Record</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+          </li>
+      </ul>
+        <ul class="toc-footer">
+            <li><a href='#'>Sign Up for a Developer Key</a></li>
+            <li><a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='relational-database-service-rds'>Relational Database Service (RDS)</h1><h2 id='accounts'>Accounts</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">'/rds/account?user-id=743722'</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">'axon_client_id'</span><span class="p">:</span> <span class="s">''</span><span class="p">,</span><span class="s">'axon_client_secret'</span><span class="p">:</span> <span class="s">''</span><span class="p">}</span>
+
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">req</span><span class="p">.</span><span class="n">status_code</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">req</span><span class="p">.</span><span class="n">headers</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">req</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"/rds/account?user-id=743722"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"axon_client_id: "</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"axon_client_secret: "</span> 
+</code></pre></div><div class="highlight"><pre class="highlight plaintext"><code>GET /rds/account?user-id=743722 HTTP/1.1
+axon_client_id: 
+axon_client_secret: 
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">headers</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Headers</span><span class="p">();</span>
+<span class="nx">headers</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="dl">'</span><span class="s1">axon_client_id</span><span class="dl">'</span><span class="p">,</span> <span class="dl">''</span><span class="p">);</span>
+<span class="nx">headers</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="dl">'</span><span class="s1">axon_client_secret</span><span class="dl">'</span><span class="p">,</span> <span class="dl">''</span><span class="p">);</span>
+
+<span class="kd">const</span> <span class="nx">init</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
+  <span class="nx">headers</span>
+<span class="p">};</span>
+
+<span class="nx">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">/rds/account?user-id=743722</span><span class="dl">'</span><span class="p">,</span> <span class="nx">init</span><span class="p">)</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">response</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span> <span class="c1">// or .text() or .blob() ...</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">text</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// text is the response body</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// error in e.message</span>
+<span class="p">});</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="no">URL</span> <span class="n">url</span> <span class="o">=</span> <span class="k">new</span> <span class="no">URL</span><span class="o">(</span><span class="s">"/rds/account?user-id=743722"</span><span class="o">);</span>
+<span class="nc">HttpURLConnection</span> <span class="n">con</span> <span class="o">=</span> <span class="o">(</span><span class="nc">HttpURLConnection</span><span class="o">)</span> <span class="n">url</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
+<span class="n">con</span><span class="o">.</span><span class="na">setRequestMethod</span><span class="o">(</span><span class="s">"GET"</span><span class="o">);</span>
+<span class="n">con</span><span class="o">.</span><span class="na">setRequestProperty</span><span class="o">(</span><span class="s">"axon_client_id"</span><span class="o">,</span> <span class="s">""</span><span class="o">);</span>
+<span class="n">con</span><span class="o">.</span><span class="na">setRequestProperty</span><span class="o">(</span><span class="s">"axon_client_secret"</span><span class="o">,</span> <span class="s">""</span><span class="o">);</span>
+
+<span class="kt">int</span> <span class="n">status</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="na">getResponseCode</span><span class="o">();</span>
+<span class="nc">BufferedReader</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="n">con</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">()));</span>
+<span class="nc">String</span> <span class="n">inputLine</span><span class="o">;</span>
+<span class="nc">StringBuffer</span> <span class="n">content</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuffer</span><span class="o">();</span>
+<span class="k">while</span><span class="o">((</span><span class="n">inputLine</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">())</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">content</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">inputLine</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="n">in</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+<span class="n">con</span><span class="o">.</span><span class="na">disconnect</span><span class="o">();</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Response status: "</span> <span class="o">+</span> <span class="n">status</span><span class="o">);</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">content</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+  </span><span class="nl">"accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"accountInfo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"accountCurrencyCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"accountStatusCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACT"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"accountStatusDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Active"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"amountDue"</span><span class="p">:</span><span class="w"> </span><span class="mf">80.15</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"availableBalance"</span><span class="p">:</span><span class="w"> </span><span class="mf">293.82</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"availableCredit"</span><span class="p">:</span><span class="w"> </span><span class="mf">293.82</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"borrowerAvailable"</span><span class="p">:</span><span class="w"> </span><span class="mf">293.82</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"branchOrgName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SVBT"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"branchOrgNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1872</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cardHoldAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"checkHoldAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"closeReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"closeReasonDescription"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"creditLimit"</span><span class="p">:</span><span class="w"> </span><span class="mi">2500</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"currentBalance"</span><span class="p">:</span><span class="w"> </span><span class="mf">2206.18</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"deliveryMethodCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PRNT"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"deliveryMethodDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"*Printed Statement"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"dueDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-17T00:00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"familyFlag"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"fundSourceCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"fundSourceDescription"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"hsaCoverageTypeFlag"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"hasLoanLimit"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"hasRestrictions"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"interestCycleCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"interestCycleDescription"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"interestRate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0625</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"interestYield"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"isPassbookAccount"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"isRetirementAccount"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"isRevolvingLoan"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"isTransactionAccount"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"isValid"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"lastContactDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-17T00:00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"lastDepositDate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"lastInterestCreditAmount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"lastInterestCreditDate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"lastStatementDate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"mlAggregateBalance"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"managementHoldAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"maturityDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2030-12-24T00:00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"nickname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Line of Credit"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"openDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2000-11-24T00:00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ownershipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JA"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ownershipDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joint And"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"pendingRegD3Count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"pendingRegD6Count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"regD3Count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"regD6Count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"regDDAvailableBalance"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"regEOverdraftOptIn"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"relatedBalance"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"retirementAccountNumber"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"statementCycleCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"statementCycleDescription"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"accountNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">4146825</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"combinedStatement"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"primaryStatementAccount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"secondaryStatementAccounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"summaryAccounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"externalEntityId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"externalEntityInfo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"isExternalEntity"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"loanAccountInfo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"amortizationFirstDueDate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"amortizationLeadDays"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"billingLeadDaysOverride"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"branchOrgName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SVBT"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"branchOrgNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1872</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"contractDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2000-11-24T00:00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"hasRestrictions"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"imminentDefaultFlag"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"interestPaidToDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-12-23T00:00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"interestRate"</span><span class="p">:</span><span class="w"> </span><span class="s2">".0625"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"isPrinSurplusProc"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"isRepricingPlanAllowed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"lastPaymentAmount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"lastPaymentDate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"lastRateChangeDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-16T00:00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"maturityAnticipatedPayoffDate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"maturityDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2030-12-24T00:00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"nextPaymentDueDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-17T00:00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"nickName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Line of Credit"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"operatingFundAccruedInt"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"operatingFundBalance"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"operatingFundIntRate"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"orignalLTVRatio"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"paymentMethodCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BILL"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"paymentMethodDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bill to Customer"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"paymentStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Current"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"payoffBalanceAsOfDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-14T00:00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"pmtCalPeriods"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"paymentAmount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"paymentCalculationPeriod"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"paymentCalculationPeriodCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"paymentTypeCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VACT"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"paymentAmount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"paymentCalculationPeriod"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"paymentCalculationPeriodCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"paymentTypeCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VINT"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"priorInterestRate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0725</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"remainingPayments"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"termMaturityDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2030-12-24T00:00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"totalPerDiem"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.38</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"orgPersons"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"product"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"canDrawFrom"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"canWriteChecks"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"displayName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Personal Line of Credit"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"externalProductTypeCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"externalProductTypeCodeDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"hsaSourceCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"majorAccountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CNS"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"minorAccountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CVLM"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"productFullName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Personal LOC Variable- Min 25 Consumer Loan"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"productName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Personal LOC Variable- Min 25"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"retirementPlanCategory"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"retirementPlanType"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"userFields"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"requestNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"requestTypeCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7704"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"wasSuccessful"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint retrieves all accounts</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET http://axon.com/api/rds/account</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>user-id</td>
+<td>String(required)</td>
+<td>Person identifier to fecth the account numbers</td>
+</tr>
+<tr>
+<td>axon_client_id</td>
+<td>String(required)</td>
+<td>ID key required to communicate with Keystone</td>
+</tr>
+<tr>
+<td>axon_client_secret</td>
+<td>String(required)</td>
+<td>Secret key required to communicate with Keystone</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+200
+</aside>
+
+<aside class="warning">401: Unauthorized or invalid client application credentials.</aside>
+
+<aside class="warning">500: Bad response from authorization server, or WSDL SOAP Fault error.</aside>
+<h2 id='account-transactions'>Account - Transactions</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">'/rds/account/transaction'</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">'axon_client_id'</span><span class="p">:</span> <span class="s">''</span><span class="p">,</span><span class="s">'axon_client_secret'</span><span class="p">:</span> <span class="s">''</span><span class="p">}</span>
+<span class="n">body</span> <span class="o">=</span> <span class="s">"""{
+  "accountId": "892a51b3-f4f1-11ed-a65c-06b6511dd099",
+  "fromDate": "2023-03-27",
+  "toDate": "2023-04-27"
+}"""</span>
+
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">req</span><span class="p">.</span><span class="n">status_code</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">req</span><span class="p">.</span><span class="n">headers</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">req</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"/rds/account/transaction"</span> <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s2">"{</span><span class="se">\n</span><span class="s2">  </span><span class="se">\"</span><span class="s2">accountId</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">892a51b3-f4f1-11ed-a65c-06b6511dd099</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">  </span><span class="se">\"</span><span class="s2">fromDate</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">2023-03-27</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">  </span><span class="se">\"</span><span class="s2">toDate</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">2023-04-27</span><span class="se">\"\n</span><span class="s2">}"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"axon_client_id: "</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"axon_client_secret: "</span> 
+</code></pre></div><div class="highlight"><pre class="highlight plaintext"><code>GET /rds/account/transaction HTTP/1.1
+axon_client_id: 
+axon_client_secret: 
+
+{
+  "accountId": "892a51b3-f4f1-11ed-a65c-06b6511dd099",
+  "fromDate": "2023-03-27",
+  "toDate": "2023-04-27"
+}
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">headers</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Headers</span><span class="p">();</span>
+<span class="nx">headers</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="dl">'</span><span class="s1">axon_client_id</span><span class="dl">'</span><span class="p">,</span> <span class="dl">''</span><span class="p">);</span>
+<span class="nx">headers</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="dl">'</span><span class="s1">axon_client_secret</span><span class="dl">'</span><span class="p">,</span> <span class="dl">''</span><span class="p">);</span>
+
+<span class="kd">const</span> <span class="nx">body</span> <span class="o">=</span> <span class="s2">`{
+  "accountId": "892a51b3-f4f1-11ed-a65c-06b6511dd099",
+  "fromDate": "2023-03-27",
+  "toDate": "2023-04-27"
+}`</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">init</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
+  <span class="nx">headers</span><span class="p">,</span>
+  <span class="nx">body</span>
+<span class="p">};</span>
+
+<span class="nx">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">/rds/account/transaction</span><span class="dl">'</span><span class="p">,</span> <span class="nx">init</span><span class="p">)</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">response</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span> <span class="c1">// or .text() or .blob() ...</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">text</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// text is the response body</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// error in e.message</span>
+<span class="p">});</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="no">URL</span> <span class="n">url</span> <span class="o">=</span> <span class="k">new</span> <span class="no">URL</span><span class="o">(</span><span class="s">"/rds/account/transaction"</span><span class="o">);</span>
+<span class="nc">HttpURLConnection</span> <span class="n">con</span> <span class="o">=</span> <span class="o">(</span><span class="nc">HttpURLConnection</span><span class="o">)</span> <span class="n">url</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
+<span class="n">con</span><span class="o">.</span><span class="na">setRequestMethod</span><span class="o">(</span><span class="s">"GET"</span><span class="o">);</span>
+<span class="n">con</span><span class="o">.</span><span class="na">setRequestProperty</span><span class="o">(</span><span class="s">"axon_client_id"</span><span class="o">,</span> <span class="s">""</span><span class="o">);</span>
+<span class="n">con</span><span class="o">.</span><span class="na">setRequestProperty</span><span class="o">(</span><span class="s">"axon_client_secret"</span><span class="o">,</span> <span class="s">""</span><span class="o">);</span>
+
+<span class="cm">/* Payload support */</span>
+<span class="n">con</span><span class="o">.</span><span class="na">setDoOutput</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+<span class="nc">DataOutputStream</span> <span class="n">out</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">DataOutputStream</span><span class="o">(</span><span class="n">con</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">());</span>
+<span class="n">out</span><span class="o">.</span><span class="na">writeBytes</span><span class="o">(</span><span class="s">"{\n"</span><span class="o">);</span>
+<span class="n">out</span><span class="o">.</span><span class="na">writeBytes</span><span class="o">(</span><span class="s">"  \"accountId\": \"892a51b3-f4f1-11ed-a65c-06b6511dd099\",\n"</span><span class="o">);</span>
+<span class="n">out</span><span class="o">.</span><span class="na">writeBytes</span><span class="o">(</span><span class="s">"  \"fromDate\": \"2023-03-27\",\n"</span><span class="o">);</span>
+<span class="n">out</span><span class="o">.</span><span class="na">writeBytes</span><span class="o">(</span><span class="s">"  \"toDate\": \"2023-04-27\"\n"</span><span class="o">);</span>
+<span class="n">out</span><span class="o">.</span><span class="na">writeBytes</span><span class="o">(</span><span class="s">"}"</span><span class="o">);</span>
+<span class="n">out</span><span class="o">.</span><span class="na">flush</span><span class="o">();</span>
+<span class="n">out</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+
+<span class="kt">int</span> <span class="n">status</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="na">getResponseCode</span><span class="o">();</span>
+<span class="nc">BufferedReader</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="n">con</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">()));</span>
+<span class="nc">String</span> <span class="n">inputLine</span><span class="o">;</span>
+<span class="nc">StringBuffer</span> <span class="n">content</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuffer</span><span class="o">();</span>
+<span class="k">while</span><span class="o">((</span><span class="n">inputLine</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">())</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">content</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">inputLine</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="n">in</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+<span class="n">con</span><span class="o">.</span><span class="na">disconnect</span><span class="o">();</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Response status: "</span> <span class="o">+</span> <span class="n">status</span><span class="o">);</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">content</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"892a51b3-f4f1-11ed-a65c-06b6511dd099"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"fromDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-03-27"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"toDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-04-27"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint retrieves an account transaction</p>
+
+<aside class="success">
+200
+</aside>
+
+<aside class="warning">401: Unauthorized or invalid client application credentials.</aside>
+
+<aside class="warning">500: Bad response from authorization server, or WSDL SOAP Fault error.</aside>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET /rds/account/transaction</code></p>
+<h3 id='headers'>Headers</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>axon_client_id</td>
+<td>String (Required)</td>
+</tr>
+<tr>
+<td>axon_client_secret</td>
+<td>String (Required)</td>
+</tr>
+</tbody></table>
+<h2 id='get-enrich-transactions'>GET Enrich - Transactions</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">'/rds/enrich/transaction'</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">'axon_client_id'</span><span class="p">:</span> <span class="s">''</span><span class="p">,</span><span class="s">'axon_client_secret'</span><span class="p">:</span> <span class="s">''</span><span class="p">}</span>
+<span class="n">body</span> <span class="o">=</span> <span class="s">"""{
+  "accountId": "892a51b3-f4f1-11ed-a65c-06b6511dd099",
+  "fromDate": "2023-03-27",
+  "toDate": "2023-04-27"
+}"""</span>
+
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">req</span><span class="p">.</span><span class="n">status_code</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">req</span><span class="p">.</span><span class="n">headers</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">req</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"/rds/enrich/transaction"</span> <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s2">"{</span><span class="se">\n</span><span class="s2">  </span><span class="se">\"</span><span class="s2">accountId</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">892a51b3-f4f1-11ed-a65c-06b6511dd099</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">  </span><span class="se">\"</span><span class="s2">fromDate</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">2023-03-27</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">  </span><span class="se">\"</span><span class="s2">toDate</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">2023-04-27</span><span class="se">\"\n</span><span class="s2">}"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"axon_client_id: "</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"axon_client_secret: "</span> 
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">headers</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Headers</span><span class="p">();</span>
+<span class="nx">headers</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="dl">'</span><span class="s1">axon_client_id</span><span class="dl">'</span><span class="p">,</span> <span class="dl">''</span><span class="p">);</span>
+<span class="nx">headers</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="dl">'</span><span class="s1">axon_client_secret</span><span class="dl">'</span><span class="p">,</span> <span class="dl">''</span><span class="p">);</span>
+
+<span class="kd">const</span> <span class="nx">body</span> <span class="o">=</span> <span class="s2">`{
+  "accountId": "892a51b3-f4f1-11ed-a65c-06b6511dd099",
+  "fromDate": "2023-03-27",
+  "toDate": "2023-04-27"
+}`</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">init</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
+  <span class="nx">headers</span><span class="p">,</span>
+  <span class="nx">body</span>
+<span class="p">};</span>
+
+<span class="nx">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">/rds/enrich/transaction</span><span class="dl">'</span><span class="p">,</span> <span class="nx">init</span><span class="p">)</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">response</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span> <span class="c1">// or .text() or .blob() ...</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">text</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// text is the response body</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// error in e.message</span>
+<span class="p">});</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="no">URL</span> <span class="n">url</span> <span class="o">=</span> <span class="k">new</span> <span class="no">URL</span><span class="o">(</span><span class="s">"/rds/enrich/transaction"</span><span class="o">);</span>
+<span class="nc">HttpURLConnection</span> <span class="n">con</span> <span class="o">=</span> <span class="o">(</span><span class="nc">HttpURLConnection</span><span class="o">)</span> <span class="n">url</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
+<span class="n">con</span><span class="o">.</span><span class="na">setRequestMethod</span><span class="o">(</span><span class="s">"GET"</span><span class="o">);</span>
+<span class="n">con</span><span class="o">.</span><span class="na">setRequestProperty</span><span class="o">(</span><span class="s">"axon_client_id"</span><span class="o">,</span> <span class="s">""</span><span class="o">);</span>
+<span class="n">con</span><span class="o">.</span><span class="na">setRequestProperty</span><span class="o">(</span><span class="s">"axon_client_secret"</span><span class="o">,</span> <span class="s">""</span><span class="o">);</span>
+
+<span class="cm">/* Payload support */</span>
+<span class="n">con</span><span class="o">.</span><span class="na">setDoOutput</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+<span class="nc">DataOutputStream</span> <span class="n">out</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">DataOutputStream</span><span class="o">(</span><span class="n">con</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">());</span>
+<span class="n">out</span><span class="o">.</span><span class="na">writeBytes</span><span class="o">(</span><span class="s">"{\n"</span><span class="o">);</span>
+<span class="n">out</span><span class="o">.</span><span class="na">writeBytes</span><span class="o">(</span><span class="s">"  \"accountId\": \"892a51b3-f4f1-11ed-a65c-06b6511dd099\",\n"</span><span class="o">);</span>
+<span class="n">out</span><span class="o">.</span><span class="na">writeBytes</span><span class="o">(</span><span class="s">"  \"fromDate\": \"2023-03-27\",\n"</span><span class="o">);</span>
+<span class="n">out</span><span class="o">.</span><span class="na">writeBytes</span><span class="o">(</span><span class="s">"  \"toDate\": \"2023-04-27\"\n"</span><span class="o">);</span>
+<span class="n">out</span><span class="o">.</span><span class="na">writeBytes</span><span class="o">(</span><span class="s">"}"</span><span class="o">);</span>
+<span class="n">out</span><span class="o">.</span><span class="na">flush</span><span class="o">();</span>
+<span class="n">out</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+
+<span class="kt">int</span> <span class="n">status</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="na">getResponseCode</span><span class="o">();</span>
+<span class="nc">BufferedReader</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="n">con</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">()));</span>
+<span class="nc">String</span> <span class="n">inputLine</span><span class="o">;</span>
+<span class="nc">StringBuffer</span> <span class="n">content</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuffer</span><span class="o">();</span>
+<span class="k">while</span><span class="o">((</span><span class="n">inputLine</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">())</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">content</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">inputLine</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="n">in</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+<span class="n">con</span><span class="o">.</span><span class="na">disconnect</span><span class="o">();</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Response status: "</span> <span class="o">+</span> <span class="n">status</span><span class="o">);</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">content</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+</code></pre></div>
+<p>This endpoint enriches an account transaction</p>
+
+<aside class="success">
+200
+</aside>
+
+<aside class="warning">401: Unauthorized or invalid client application credentials.</aside>
+
+<aside class="warning">500: Bad response from authorization server, or WSDL SOAP Fault error.</aside>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET /rds/enrich/transaction</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>accountId</td>
+<td>String (Required)</td>
+<td>Account Id to fetch the transactions</td>
+</tr>
+<tr>
+<td>fromDate</td>
+<td>String</td>
+<td>From date to fetch account transactions</td>
+</tr>
+<tr>
+<td>toDate</td>
+<td>String</td>
+<td>To date to fetch account transactions</td>
+</tr>
+</tbody></table>
+<h2 id='post-enrich-transactions'>POST Enrich - Transactions</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">'/rds/enrich/transaction'</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">'axon_client_id'</span><span class="p">:</span> <span class="s">''</span><span class="p">,</span><span class="s">'axon_client_secret'</span><span class="p">:</span> <span class="s">''</span><span class="p">}</span>
+
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">req</span><span class="p">.</span><span class="n">status_code</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">req</span><span class="p">.</span><span class="n">headers</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">req</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"/rds/enrich/transaction"</span> <span class="se">\</span>
+  <span class="nt">-X</span> POST <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"axon_client_id: "</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"axon_client_secret: "</span> 
+
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">headers</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Headers</span><span class="p">();</span>
+<span class="nx">headers</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="dl">'</span><span class="s1">axon_client_id</span><span class="dl">'</span><span class="p">,</span> <span class="dl">''</span><span class="p">);</span>
+<span class="nx">headers</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="dl">'</span><span class="s1">axon_client_secret</span><span class="dl">'</span><span class="p">,</span> <span class="dl">''</span><span class="p">);</span>
+
+<span class="kd">const</span> <span class="nx">init</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
+  <span class="nx">headers</span>
+<span class="p">};</span>
+
+<span class="nx">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">/rds/enrich/transaction</span><span class="dl">'</span><span class="p">,</span> <span class="nx">init</span><span class="p">)</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">response</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span> <span class="c1">// or .text() or .blob() ...</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">text</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// text is the response body</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// error in e.message</span>
+<span class="p">});</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="no">URL</span> <span class="n">url</span> <span class="o">=</span> <span class="k">new</span> <span class="no">URL</span><span class="o">(</span><span class="s">"/rds/enrich/transaction"</span><span class="o">);</span>
+<span class="nc">HttpURLConnection</span> <span class="n">con</span> <span class="o">=</span> <span class="o">(</span><span class="nc">HttpURLConnection</span><span class="o">)</span> <span class="n">url</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
+<span class="n">con</span><span class="o">.</span><span class="na">setRequestMethod</span><span class="o">(</span><span class="s">"POST"</span><span class="o">);</span>
+<span class="n">con</span><span class="o">.</span><span class="na">setRequestProperty</span><span class="o">(</span><span class="s">"axon_client_id"</span><span class="o">,</span> <span class="s">""</span><span class="o">);</span>
+<span class="n">con</span><span class="o">.</span><span class="na">setRequestProperty</span><span class="o">(</span><span class="s">"axon_client_secret"</span><span class="o">,</span> <span class="s">""</span><span class="o">);</span>
+
+<span class="kt">int</span> <span class="n">status</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="na">getResponseCode</span><span class="o">();</span>
+<span class="nc">BufferedReader</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="n">con</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">()));</span>
+<span class="nc">String</span> <span class="n">inputLine</span><span class="o">;</span>
+<span class="nc">StringBuffer</span> <span class="n">content</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuffer</span><span class="o">();</span>
+<span class="k">while</span><span class="o">((</span><span class="n">inputLine</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">())</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">content</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">inputLine</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="n">in</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+<span class="n">con</span><span class="o">.</span><span class="na">disconnect</span><span class="o">();</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Response status: "</span> <span class="o">+</span> <span class="n">status</span><span class="o">);</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">content</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+</code></pre></div>
+<p>This endpoint enriches an account transaction</p>
+
+<aside class="success">
+200
+</aside>
+
+<aside class="warning">401: Unauthorized or invalid client application credentials.</aside>
+
+<aside class="warning">500: Bad response from authorization server, or WSDL SOAP Fault error.</aside>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>POST /rds/enrich/transaction</code></p>
+<h3 id='headers-2'>Headers</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>axon_client_id</td>
+<td>String (Required)</td>
+</tr>
+<tr>
+<td>axon_client_secret</td>
+<td>String (Required)</td>
+</tr>
+</tbody></table>
+<h1 id='kinesis-stream'>Kinesis Stream</h1><h2 id='post-record'>POST Record</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">'/kinesis/record'</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">'axon_client_id'</span><span class="p">:</span> <span class="s">''</span><span class="p">,</span><span class="s">'axon_client_secret'</span><span class="p">:</span> <span class="s">''</span><span class="p">}</span>
+<span class="n">body</span> <span class="o">=</span> <span class="s">"""{
+  "streamName": "axon_api_dev",
+  "partitionKey": "ACCOUNT-6",
+  "data": {
+    "self": "/api/v1/me/payees/2809cbbb1a614b4aa4466a90f0368f4a",
+    "id": "2809cbbb1a614b4aa4466a90f0368f4a"
+  },
+  "result": {
+    "success": true,
+    "resultInfo": []
+  }
+}"""</span>
+
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">req</span><span class="p">.</span><span class="n">status_code</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">req</span><span class="p">.</span><span class="n">headers</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">req</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"/kinesis/record"</span> <span class="se">\</span>
+  <span class="nt">-X</span> POST <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s2">"{</span><span class="se">\n</span><span class="s2">  </span><span class="se">\"</span><span class="s2">streamName</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">axon_api_dev</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">  </span><span class="se">\"</span><span class="s2">partitionKey</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">ACCOUNT-6</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">  </span><span class="se">\"</span><span class="s2">data</span><span class="se">\"</span><span class="s2">: {</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">self</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">/api/v1/me/payees/2809cbbb1a614b4aa4466a90f0368f4a</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">id</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">2809cbbb1a614b4aa4466a90f0368f4a</span><span class="se">\"\n</span><span class="s2">  },</span><span class="se">\n</span><span class="s2">  </span><span class="se">\"</span><span class="s2">result</span><span class="se">\"</span><span class="s2">: {</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">success</span><span class="se">\"</span><span class="s2">: true,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">resultInfo</span><span class="se">\"</span><span class="s2">: []</span><span class="se">\n</span><span class="s2">  }</span><span class="se">\n</span><span class="s2">}"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"axon_client_id: "</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"axon_client_secret: "</span> 
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">headers</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Headers</span><span class="p">();</span>
+<span class="nx">headers</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="dl">'</span><span class="s1">axon_client_id</span><span class="dl">'</span><span class="p">,</span> <span class="dl">''</span><span class="p">);</span>
+<span class="nx">headers</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="dl">'</span><span class="s1">axon_client_secret</span><span class="dl">'</span><span class="p">,</span> <span class="dl">''</span><span class="p">);</span>
+
+<span class="kd">const</span> <span class="nx">body</span> <span class="o">=</span> <span class="s2">`{
+  "streamName": "axon_api_dev",
+  "partitionKey": "ACCOUNT-6",
+  "data": {
+    "self": "/api/v1/me/payees/2809cbbb1a614b4aa4466a90f0368f4a",
+    "id": "2809cbbb1a614b4aa4466a90f0368f4a"
+  },
+  "result": {
+    "success": true,
+    "resultInfo": []
+  }
+}`</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">init</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
+  <span class="nx">headers</span><span class="p">,</span>
+  <span class="nx">body</span>
+<span class="p">};</span>
+
+<span class="nx">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">/kinesis/record</span><span class="dl">'</span><span class="p">,</span> <span class="nx">init</span><span class="p">)</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">response</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span> <span class="c1">// or .text() or .blob() ...</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">text</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// text is the response body</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// error in e.message</span>
+<span class="p">});</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="no">URL</span> <span class="n">url</span> <span class="o">=</span> <span class="k">new</span> <span class="no">URL</span><span class="o">(</span><span class="s">"/kinesis/record"</span><span class="o">);</span>
+<span class="nc">HttpURLConnection</span> <span class="n">con</span> <span class="o">=</span> <span class="o">(</span><span class="nc">HttpURLConnection</span><span class="o">)</span> <span class="n">url</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
+<span class="n">con</span><span class="o">.</span><span class="na">setRequestMethod</span><span class="o">(</span><span class="s">"POST"</span><span class="o">);</span>
+<span class="n">con</span><span class="o">.</span><span class="na">setRequestProperty</span><span class="o">(</span><span class="s">"axon_client_id"</span><span class="o">,</span> <span class="s">""</span><span class="o">);</span>
+<span class="n">con</span><span class="o">.</span><span class="na">setRequestProperty</span><span class="o">(</span><span class="s">"axon_client_secret"</span><span class="o">,</span> <span class="s">""</span><span class="o">);</span>
+
+<span class="cm">/* Payload support */</span>
+<span class="n">con</span><span class="o">.</span><span class="na">setDoOutput</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+<span class="nc">DataOutputStream</span> <span class="n">out</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">DataOutputStream</span><span class="o">(</span><span class="n">con</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">());</span>
+<span class="n">out</span><span class="o">.</span><span class="na">writeBytes</span><span class="o">(</span><span class="s">"{\n"</span><span class="o">);</span>
+<span class="n">out</span><span class="o">.</span><span class="na">writeBytes</span><span class="o">(</span><span class="s">"  \"streamName\": \"axon_api_dev\",\n"</span><span class="o">);</span>
+<span class="n">out</span><span class="o">.</span><span class="na">writeBytes</span><span class="o">(</span><span class="s">"  \"partitionKey\": \"ACCOUNT-6\",\n"</span><span class="o">);</span>
+<span class="n">out</span><span class="o">.</span><span class="na">writeBytes</span><span class="o">(</span><span class="s">"  \"data\": {\n"</span><span class="o">);</span>
+<span class="n">out</span><span class="o">.</span><span class="na">writeBytes</span><span class="o">(</span><span class="s">"    \"self\": \"/api/v1/me/payees/2809cbbb1a614b4aa4466a90f0368f4a\",\n"</span><span class="o">);</span>
+<span class="n">out</span><span class="o">.</span><span class="na">writeBytes</span><span class="o">(</span><span class="s">"    \"id\": \"2809cbbb1a614b4aa4466a90f0368f4a\"\n"</span><span class="o">);</span>
+<span class="n">out</span><span class="o">.</span><span class="na">writeBytes</span><span class="o">(</span><span class="s">"  },\n"</span><span class="o">);</span>
+<span class="n">out</span><span class="o">.</span><span class="na">writeBytes</span><span class="o">(</span><span class="s">"  \"result\": {\n"</span><span class="o">);</span>
+<span class="n">out</span><span class="o">.</span><span class="na">writeBytes</span><span class="o">(</span><span class="s">"    \"success\": true,\n"</span><span class="o">);</span>
+<span class="n">out</span><span class="o">.</span><span class="na">writeBytes</span><span class="o">(</span><span class="s">"    \"resultInfo\": []\n"</span><span class="o">);</span>
+<span class="n">out</span><span class="o">.</span><span class="na">writeBytes</span><span class="o">(</span><span class="s">"  }\n"</span><span class="o">);</span>
+<span class="n">out</span><span class="o">.</span><span class="na">writeBytes</span><span class="o">(</span><span class="s">"}"</span><span class="o">);</span>
+<span class="n">out</span><span class="o">.</span><span class="na">flush</span><span class="o">();</span>
+<span class="n">out</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+
+<span class="kt">int</span> <span class="n">status</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="na">getResponseCode</span><span class="o">();</span>
+<span class="nc">BufferedReader</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="n">con</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">()));</span>
+<span class="nc">String</span> <span class="n">inputLine</span><span class="o">;</span>
+<span class="nc">StringBuffer</span> <span class="n">content</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuffer</span><span class="o">();</span>
+<span class="k">while</span><span class="o">((</span><span class="n">inputLine</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">())</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">content</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">inputLine</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="n">in</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+<span class="n">con</span><span class="o">.</span><span class="na">disconnect</span><span class="o">();</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Response status: "</span> <span class="o">+</span> <span class="n">status</span><span class="o">);</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">content</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"sequenceNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"49606335212815173325497162993557985561890649613956808706"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"shardId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shardId-000000000000"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"requestId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fc908c18-1bbc-9722-ab8d-c7577970ebdc"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 24 Apr 2020 20:16:15 GMT"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"httpStatusCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint posts records to RDS</p>
+
+<aside class="success">
+200
+</aside>
+
+<aside class="warning">401: Unauthorized or invalid client application credentials.</aside>
+
+<aside class="warning">500: Bad response from authorization server, or WSDL SOAP Fault error.</aside>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>POST /kinesis/record</code></p>
+<h3 id='headers-3'>Headers</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>axon_client_id</td>
+<td>String (Required)</td>
+</tr>
+<tr>
+<td>axon_client_secret</td>
+<td>String (Required)</td>
+</tr>
+</tbody></table>
+<h1 id='errors'>Errors</h1>
+<p>The s-aws-api API uses the following error codes:</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request -- Your request is invalid.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized -- Unauthorized or invalid client application credentials.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden -- The aws requested is hidden for administrators only.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found -- The specified information could not be found.</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error -- Bad response from authorization server, or WSDL SOAP Fault error</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">shell</a>
+                <a href="#" data-language-name="HTTP">HTTP</a>
+                <a href="#" data-language-name="python">python</a>
+                <a href="#" data-language-name="javascript">javascript</a>
+                <a href="#" data-language-name="java">java</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
