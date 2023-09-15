@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html>
   <head>
@@ -372,9 +371,6 @@
 </code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"/rds/account?user-id=743722"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"axon_client_id: "</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"axon_client_secret: "</span> 
-</code></pre></div><div class="highlight"><pre class="highlight plaintext"><code>GET /rds/account?user-id=743722 HTTP/1.1
-axon_client_id: 
-axon_client_secret: 
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">headers</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Headers</span><span class="p">();</span>
 <span class="nx">headers</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="dl">'</span><span class="s1">axon_client_id</span><span class="dl">'</span><span class="p">,</span> <span class="dl">''</span><span class="p">);</span>
 <span class="nx">headers</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="dl">'</span><span class="s1">axon_client_secret</span><span class="dl">'</span><span class="p">,</span> <span class="dl">''</span><span class="p">);</span>
@@ -611,15 +607,6 @@ axon_client_secret:
   <span class="nt">-d</span> <span class="s2">"{</span><span class="se">\n</span><span class="s2">  </span><span class="se">\"</span><span class="s2">accountId</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">892a51b3-f4f1-11ed-a65c-06b6511dd099</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">  </span><span class="se">\"</span><span class="s2">fromDate</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">2023-03-27</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">  </span><span class="se">\"</span><span class="s2">toDate</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">2023-04-27</span><span class="se">\"\n</span><span class="s2">}"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"axon_client_id: "</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"axon_client_secret: "</span> 
-</code></pre></div><div class="highlight"><pre class="highlight plaintext"><code>GET /rds/account/transaction HTTP/1.1
-axon_client_id: 
-axon_client_secret: 
-
-{
-  "accountId": "892a51b3-f4f1-11ed-a65c-06b6511dd099",
-  "fromDate": "2023-03-27",
-  "toDate": "2023-04-27"
-}
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">headers</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Headers</span><span class="p">();</span>
 <span class="nx">headers</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="dl">'</span><span class="s1">axon_client_id</span><span class="dl">'</span><span class="p">,</span> <span class="dl">''</span><span class="p">);</span>
 <span class="nx">headers</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="dl">'</span><span class="s1">axon_client_secret</span><span class="dl">'</span><span class="p">,</span> <span class="dl">''</span><span class="p">);</span>
@@ -1072,7 +1059,6 @@ axon_client_secret:
       <div class="dark-box">
           <div class="lang-selector">
                 <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="HTTP">HTTP</a>
                 <a href="#" data-language-name="python">python</a>
                 <a href="#" data-language-name="javascript">javascript</a>
                 <a href="#" data-language-name="java">java</a>
